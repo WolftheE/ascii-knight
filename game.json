@@ -1,0 +1,52 @@
+{
+    "//": "Make custom maps through a json file format, make sure it has all the values even if it empty",
+    "//": "To put items in a map, just use 'item1' or the item that you want",
+    "//": "To put Characters or Enemies in a map, just use 'character1' or the character that you want",
+
+    "intro": "You found yourself awake in a Dungeon...",
+
+    "items" : [
+        {"id" : 0, "name" : "Rusty Sword", "damage" : -1, "used_message" : "The sword gave you tetanus and you died!"},
+        {"id" : 1, "name" : "A dart", "damage" : 10, "used_message" : "You threw the dart and it did some heavy damage!"}
+    ],
+
+    "friends" : [
+        {"id" : 0, "name" : "John", "description" : "A person", "dialog": "Hello there, who are you?"}
+    ],
+
+    "enemys" : [
+        {"id" : 0, "name" : "Henry", "description" : "She will force you to do Atomi", "dialog" : "Miss Atomi made you do Atomi but you failed and she slimed you out!", "strength" : 5}
+    ],
+
+
+    "zones": [
+        {
+            "id" : 0,
+            "name" : "A house",
+            "description" : "A warm and cosy place",
+            "direction" : [1, 2],
+            "item" : 0
+        },
+        {
+            "id" : 1,
+            "name" : "Hut",
+            "description" : "A light glows there",
+            "direction" : [0],
+            "item" : 1,
+            "friend" : 0
+        },
+        {
+            "id" : 2,
+            "name" : "Tunnel",
+            "description" : "A narow and wet tunnel",
+            "direction" : [0, 3]
+        },
+        {
+            "id" : 3,
+            "name" : "Lair",
+            "description" : "Who's there?",
+            "direction" : [2],
+            "enemy" : 0
+        }
+    ]
+}
