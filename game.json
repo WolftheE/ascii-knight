@@ -15,7 +15,7 @@
     ],
 
     "enemys" : [
-        {"id" : 0, "name" : "Henry", "description" : "She will force you to do Atomi", "dialog" : "Miss Atomi made you do Atomi but you failed and she slimed you out!", "strength" : 5}
+        {"id" : 0, "name" : "Henry", "description" : "Ok", "dialog" : "Wow you are stronger then I though!", "strength" : 5}
     ],
 
 

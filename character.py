@@ -26,6 +26,8 @@ class Enemy(Character):
         self.name = name
         self.strength = strength
 
+        self.dialog = dialog
+
         self.health = strength * 0.5
         self.attack_damage = strength
             

@@ -287,7 +287,7 @@ while dead == False:
                 print(f"+ Item, {items[zones[playerlocation].item].name} has been added to your inventory!")
                 del(zones[playerlocation].item)
         
-        case "fight":
+        case "fight": # fighting part
             if get_enemy(zones[playerlocation], "name") == "None":
                 print("No one to fight!")
             else:
@@ -298,7 +298,7 @@ while dead == False:
 _____________________________________________
 | You vs {get_enemy(zones[playerlocation], "name")}
 |
-| Health Your: {playerhealth}
+| Your Health: {playerhealth}
 | Inventory: {str(get_inventory_item_name()).strip('[]')} 
 |  
 | Enemy : {get_enemy(zones[playerlocation], "health")}
@@ -311,19 +311,34 @@ _____________________________________________
                     print(fighttext)
                     figtingcommand = input("> ")
                     if figtingcommand.startswith("use"):
-                        tempfightingcommand = command[3:].strip()
-                        
+                        tempfightingcommand = figtingcommand[3:].strip()
+
+                        count = 0
                         founditem = False
 
                         while founditem == False:
-                            if zones[zones[playerlocation].direction[count]].name.lower() == direction.lower():
-                                playerlocation = zones[playerlocation].direction[count]
-                                hasplayermoved = True
-                            else:
-                                count += 1
+                            try: # check if list is not out of range
+                                if (items[playerinventory[count]].name).lower() == tempfightingcommand.lower():
+                                    enemies[zones[playerlocation].enemy].health += items[playerinventory[count]].damage
+                                    founditem = True
+                                else:
+                                    count += 1
+                            except IndexError:  
+                                founditem = True
+                                enemies[zones[playerlocation].enemy].health -= 4
+                        
+
+                        if enemies[zones[playerlocation].enemy].health <= 0:
+                            print(enemies[zones[playerlocation].enemy].dialog)
+                            print("You Won!")
+                            fighting = False
+                            del(zones[playerlocation].enemy)
+                            
+
 
                     elif figtingcommand == "exit":
                         fighting = False
+                        showzoneinfo = True
                     else:
                         print("Unknown command!")
 
