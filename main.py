@@ -312,7 +312,16 @@ _____________________________________________
                     figtingcommand = input("> ")
                     if figtingcommand.startswith("use"):
                         tempfightingcommand = command[3:].strip()
-                        print("hit")
+                        
+                        founditem = False
+
+                        while founditem == False:
+                            if zones[zones[playerlocation].direction[count]].name.lower() == direction.lower():
+                                playerlocation = zones[playerlocation].direction[count]
+                                hasplayermoved = True
+                            else:
+                                count += 1
+
                     elif figtingcommand == "exit":
                         fighting = False
                     else:
